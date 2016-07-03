@@ -1,3 +1,3 @@
-Fabricator(:publisher) do
-  name "MyString"
+Fabricator(:author) do
+  name {Faker::Name.name}
 end
