@@ -1,11 +1,10 @@
 class AuthorsController < ApplicationController
 
   def index
-    #code
   end
 
   def new
-
+    @author = Author.new
   end
 
   def show
