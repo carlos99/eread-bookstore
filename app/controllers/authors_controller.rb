@@ -3,6 +3,11 @@ class AuthorsController < ApplicationController
   def index
   end
 
+  def show
+    #require 'pry';binding.pry
+    @author = Author.find(params[:id])
+  end
+
   def new
     @author = Author.new
   end
@@ -18,9 +23,17 @@ class AuthorsController < ApplicationController
     end
   end
 
-  def show
-    #require 'pry';binding.pry
+  def edit
     @author = Author.find(params[:id])
+  end
+
+  def update
+    @author = Author.find(params[:id])
+    
+    if @author.update(author_params)
+      flash[:success] = "Author has been updated"
+      redirect_to @author
+    end
   end
 
   private

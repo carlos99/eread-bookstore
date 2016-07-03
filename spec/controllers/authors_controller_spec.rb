@@ -55,4 +55,39 @@ RSpec.describe AuthorsController, :type => :controller do
       end
     end
   end
+
+  describe "GET #edit" do
+    let(:author) { Fabricate(:author) }
+
+    it "sends a successful edit request" do
+      get :edit, id: author
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe "PUT #update" do
+    context "successful update" do
+      let(:carlos) { Fabricate(:author, first_name: "Carlos") }
+
+      it "updates the modified author object" do
+        put :update, author: Fabricate.attributes_for(:author, first_name: "Charles"), id: carlos.id
+        expect(Author.last.first_name).to eq("Charles")
+        expect(Author.last.first_name).not_to eq("Carlos")
+      end
+
+      it "sets the success flash message" do
+        put :update, author: Fabricate.attributes_for(:author, first_name: "Charles"), id: carlos.id
+        expect(flash[:success]).to eq("Author has been updated")
+      end
+
+      it "redirect to the show action" do
+        put :update, author: Fabricate.attributes_for(:author, first_name: "Charles"), id: carlos.id
+        expect(response).to redirect_to(author_path(Author.last))
+      end
+    end
+
+    context "unsuccessful update" do
+
+    end
+  end
 end
