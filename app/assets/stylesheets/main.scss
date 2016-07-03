@@ -2,6 +2,25 @@ body{
   background-color: #FBFBFB !important;
 }
 
+.navbar-default{
+  background-color: #f5f4f1 !important;
+}
+
 .center-title{
   text-align: center;
+}
+
+.publisher-frm{
+  input[type=text]{
+    background: transparent;
+    border-radius: 0;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    padding: 14px
+  }
+
+  .general-button{
+    background-color: #37B7B9;
+    border-radius: 0;
+    color: #fff;
+  }
 }
