@@ -1,1 +1,17 @@
-<h1>Hello</h1>
+<div class="container">
+
+  <% @authors.each do |author| %>
+      <div class="row">
+        <div class="col-md-6">
+          <%= author.first_name %>
+        </div>
+        <div class="col-md-6">
+          <%= author.last_name %>
+        </div>
+      </div>
+
+    <% end %>
+
+  <%= link_to "Add New Author", new_author_path %>
+
+</div>
