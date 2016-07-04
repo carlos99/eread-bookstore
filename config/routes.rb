@@ -6,4 +6,6 @@ Rails.application.routes.draw do
 
   resources :publishers
 
+  resources :books
+
 end
