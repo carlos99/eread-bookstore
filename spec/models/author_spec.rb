@@ -19,4 +19,7 @@ RSpec.describe Author, :type => :model do
       expect(author.full_name).to eq("Carlos Orellana")
     end
   end
+
+  it { should have_many(:publications) }
+  it { should have_many(:books) }
 end
