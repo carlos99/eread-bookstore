@@ -31,7 +31,7 @@
           </div>
 
           <div class="form-group">
-              <%= f.text_field :description, class: 'form-control', hide_label: true, placeholder: 'Book Description' %>
+              <%= f.text_area :description, class: 'form-control', hide_label: true, placeholder: 'Book Description' %>
           </div>
 
           <div class="form-group">
@@ -45,7 +45,10 @@
 
             <div class="form-group checkbox-authors">
                 <%= f.collection_check_boxes :author_ids, @authors, :id, :full_name, class: 'form-control', hide_label: true %>
+            </div>
 
+            <div class="form-group">
+                <%= f.file_field :book_cover, placeholder: 'Books Description', class: 'form-control', hide_label: true %>
             </div>
 
         <div class="form-group">
