@@ -10,6 +10,8 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
+    @authors = Author.all
+    @publishers = Publisher.all
   end
 
   def create
@@ -19,6 +21,8 @@ class BooksController < ApplicationController
       redirect_to @book
     else
       flash.now[:danger] = 'Book has not been created'
+      @authors = Author.all
+      @publishers = Publisher.all
       render :new
     end
   end

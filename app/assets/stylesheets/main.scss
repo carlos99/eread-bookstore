@@ -1,6 +1,5 @@
 body{
   background-color: #FBFBFB !important;
-
 }
 
 header{
@@ -143,5 +142,12 @@ footer{
   p{
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 20px;
+  }
+}
+
+.checkbox-authors{
+  input[type=checkbox]{
+    display: inline-block;
+    margin: 10px;
   }
 }
