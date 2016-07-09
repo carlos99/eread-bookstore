@@ -1,6 +1,6 @@
 <header role="banner">
-  <nav role="navigation" class="navbar navbar-default">
-    <div class="container">
+  <nav role="navigation" class="navbar navbar-default nav-header">
+    <div class="container container-main-navigation" style="margin-top: 21px;">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
           <span class="icon-bar"></span>
@@ -11,8 +11,8 @@
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><%= link_to "Home", root_path %></li>
-          <li ><%= link_to "Authors", authors_path %></li>
+          <li class=""><%= link_to "Home", root_path, class: 'nav-link' %></li>
+          <li ><%= link_to "Authors", authors_path, class: 'nav-link' %></li>
         </ul>
       </div>
     </div>
