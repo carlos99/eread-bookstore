@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 ruby "2.2.5"
+
 gem 'rails', '4.2.6'
 gem 'pg', '~> 0.15'
 gem 'sass-rails', '~> 5.0'
@@ -9,9 +10,11 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'masonry-rails', '~> 0.2.4'
 gem 'bootstrap_form'
 
-#New Gems
 gem "figaro"
 gem "puma"
+gem 'carrierwave', '~> 0.10.0'
+gem 'mini_magick', '~> 4.3.6'
+gem 'fog', '~> 1.36.0'
 
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
