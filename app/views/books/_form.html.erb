@@ -1,6 +1,6 @@
 <div class="container">
     <div class="col-md-8 col-md-offset-2">
-      <%= form_for(@book, html: {class: 'new-book-frm' , role: "form"}) do |f| %>
+      <%= bootstrap_form_for(@book, html: {class: 'new-book-frm' , role: "form"}) do |f| %>
 
         <% if @book.errors.any? %>
           <div id="error_explanation">
@@ -54,8 +54,3 @@
       <% end %>
     </div>
 </div>
-
-<!-- Form some reason, the select tag is not taking the proper class -->
-<script>
-  $( "#book_publisher_id" ).addClass( "form-control" );
-</script>
