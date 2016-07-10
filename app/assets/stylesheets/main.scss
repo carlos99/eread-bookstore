@@ -23,6 +23,13 @@ p{
   font-family: 'Lato', sans-serif;
 }
 
+.row-no-margin{
+  background: #262935;
+  margin-bottom: 50px;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
 .nav-header{
   background-color: #fff !important;
   border: 0 !important;
@@ -142,5 +149,37 @@ footer{
   p{
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 20px;
+  }
+}
+
+.form-titles{
+  color: #FFF;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 35px;
+  margin-top: 70px;
+}
+
+.book-form-container {
+  background: #fff;
+  border-radius: 10px;
+  margin-bottom: 100px;
+  margin-top: 40px;
+  padding: 10px 40px;
+}
+
+.new-book-frm{
+  margin-top: 30px;
+  padding: 0 20px;
+
+  .form-control{
+    border-radius: 0;
+    font-family: 'Lato', sans-serif;
+    border: 1px solid #37B7B9;
+  }
+
+  .btn{
+    border-radius: 0;
+    background-color: #37B7B9;
+    border-color: #37B7B9;
   }
 }
