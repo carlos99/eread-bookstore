@@ -15,6 +15,7 @@ gem "puma"
 gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3.6'
 gem 'fog', '~> 1.36.0'
+gem 'bcrypt', '~> 3.1.7'
 
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
