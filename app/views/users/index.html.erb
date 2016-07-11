@@ -1,0 +1,17 @@
+<div class="container">
+
+  <% @users.each do |user| %>
+      <div class="row">
+        <div class="col-md-6">
+          <%= user.first_name %>
+        </div>
+        <div class="col-md-6">
+          <%= user.last_name %>
+        </div>
+      </div>
+
+    <% end %>
+
+  <%= link_to "Add New Author", new_user_path %>
+
+</div>
