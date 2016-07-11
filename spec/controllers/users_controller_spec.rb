@@ -8,4 +8,14 @@ RSpec.describe UsersController, :type => :controller do
       expect(response).to have_http_status(:success)
     end
   end
+
+  describe "GET #show" do
+    it "returns a successful http request status code" do
+      user = Fabricate(:user)
+
+      get :show, id: user.id
+      expect(response).to have_http_status(:success)
+    end
+  end
+
 end
