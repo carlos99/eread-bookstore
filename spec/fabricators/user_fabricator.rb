@@ -3,4 +3,5 @@ Fabricator(:user) do
   last_name {Faker::Name.last_name}
   email { Faker::Internet.email }
   password 'password'
+  password 'password_confirmation'
 end

@@ -98,7 +98,6 @@ RSpec.describe AuthorsController, :type => :controller do
         put :update, author: Fabricate.attributes_for(:author, first_name: nil), id: carlos.id
         expect(flash[:danger]).to eq("Author has not been updated")
       end
-
     end
   end
 
