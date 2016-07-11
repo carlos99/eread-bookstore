@@ -101,4 +101,23 @@ RSpec.describe UsersController, :type => :controller do
     end
   end
 
+  describe "DELETE #destroy" do
+    let(:user) { Fabricate(:user) }
+
+    it "deletes the user with the given id" do
+      delete :destroy, id: user.id
+      expect(User.count).to eq(0)
+    end
+
+    it "sets the flash message" do
+      delete :destroy, id: user.id
+      expect(flash[:success]).to eq("User has been deleted")
+    end
+
+    it "redirects to the index action" do
+      delete :destroy, id: user.id
+      expect(response).to redirect_to users_path
+    end
+  end
+
 end
