@@ -15,20 +15,20 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = "User has been created"
+      flash.now[:success] = "User has been created"
       redirect_to @user
     else
-      flash[:danger] = "User has not been created"
+      flash.now[:danger] = "User has not been created"
       render :new
     end
   end
 
   def update
     if @user.update(user_params)
-      flash[:success] = "User has been updated"
+      flash.now[:success] = "User has been updated"
       redirect_to @user
     else
-      flash[:danger] = "User has not been updated"
+      flash.now[:danger] = "User has not been updated"
       render :edit
     end
   end
