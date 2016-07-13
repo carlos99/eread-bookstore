@@ -1,0 +1,22 @@
+<section class="row-no-margin">
+  <div class="container">
+    <h3 class="text-center titles form-titles">Sign in</h3>
+      <div class="col-md-6 col-md-offset-3 book-form-container">
+        <%= bootstrap_form_tag url: sign_in_path, html: { class: 'new-general-form' } do |f| %>
+
+            <div class='form-group'>
+                <%= f.email_field :email, class: 'form-control', placeholder: 'Email', hide_label: true %>
+            </div>
+
+            <div class='form-group'>
+                <%= f.password_field :password, class: 'form-control', placeholder: 'Password', hide_label: true %>
+            </div>
+            <div class='form-group actions'>
+              <%= f.submit "Sign in", class:'btn btn-success' %> Or
+              <%= link_to "Sing Up", new_user_path, class: 'sign-up-link' %>
+            </div>
+
+        <% end %>
+      </div>
+  </div>
+</section>

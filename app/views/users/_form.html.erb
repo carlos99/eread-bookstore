@@ -35,7 +35,8 @@
         </div>
 
         <div class="form-group">
-          <%= f.submit class: 'btn btn-success'%>
+          <%= f.submit 'Sign Up', class: 'btn btn-success'%> Or
+          <%= link_to "Sing In", sign_in_path, class: 'sign-up-link' %>
         </div>
       <% end %>
     </div>

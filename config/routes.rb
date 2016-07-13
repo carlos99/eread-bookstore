@@ -10,7 +10,8 @@ Rails.application.routes.draw do
 
   resources :users
 
-  get '/signin', to: "sessions#new", as: "signin"
-  post '/signin', to: "sessions#create"
+  get '/sign_up', to: 'users#new', as: 'sign_up'
+  get '/sign_in', to: "sessions#new", as: "sign_in"
+  post '/sign_in', to: "sessions#create"
 
 end
