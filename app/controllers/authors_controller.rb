@@ -1,5 +1,5 @@
 class AuthorsController < ApplicationController
-  before_action :require_singin
+  before_action :require_sign_in
   before_action :require_admin
   before_action :set_author, only: [:show, :edit, :update, :destroy]
 
