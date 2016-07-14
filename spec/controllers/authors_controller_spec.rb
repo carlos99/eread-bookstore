@@ -18,6 +18,12 @@ RSpec.describe AuthorsController, :type => :controller do
     end
 
     context "non-admin-users" do
+      before { set_current_user }
+      it "redirects to the root path" do
+        get :index
+
+        expect(response).to redirect_to root_path
+      end
     end
 
     context "admin users" do
@@ -30,11 +36,35 @@ RSpec.describe AuthorsController, :type => :controller do
   end
 
   describe "GET #show" do
-    it "returns a successful http request status code" do
-      author = Fabricate(:author)
+    let(:author) { Fabricate(:author) }
 
-      get :show, id: author.id
-      expect(response).to have_http_status(:success)
+    context "guest users" do
+      before { clear_current_user }
+
+      it "redirects to the sign in page for no authenticated users" do
+        get :show, id: user.id
+
+        expect(response).to redirect_to sign_in_path
+      end
+    end
+
+    context "non admin users" do
+      before do
+        clear_current_user
+        set_current_user
+      end
+
+      it "redirects to the root path" do
+        get :show, id: user.id
+        expect(response).to redirect_to root_path
+      end
+    end
+
+    context "admin users" do
+      it "returns a successful http request status code" do
+        get :show, id: author.id
+        expect(response).to have_http_status(:success)
+      end
     end
   end
 
