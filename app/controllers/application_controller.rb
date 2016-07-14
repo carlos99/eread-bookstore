@@ -10,4 +10,11 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :current_user
+
+  def require_singin
+    unless current_user
+      flash[:danger] = "Please Sign In First"
+      redirect_to sign_in_path
+    end
+  end
 end
