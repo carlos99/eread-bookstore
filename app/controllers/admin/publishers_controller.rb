@@ -1,4 +1,4 @@
-class PublishersController < ApplicationController
+class Admin::PublishersController < Admin::BaseController
   before_action :set_publisher, only: [:show, :edit, :update, :destroy]
   def index
     #code

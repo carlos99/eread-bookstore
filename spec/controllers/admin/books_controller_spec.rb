@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe BooksController, :type => :controller do
+RSpec.describe Admin::BooksController, :type => :controller do
 
   describe "GET #index" do
     it "returns a successful http request stutus code" do
