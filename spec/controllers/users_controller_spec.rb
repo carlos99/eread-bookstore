@@ -1,20 +1,31 @@
 require 'rails_helper'
+require 'support/macros'
+require 'support/shared_examples'
 
 RSpec.describe UsersController, :type => :controller do
-  describe "GET #index" do
-    it "returns a successful http request stutus code" do
-      get :index
-
-      expect(response).to have_http_status(:success)
-    end
-  end
-
   describe "GET #show" do
-    it "returns a successful http request status code" do
-      user = Fabricate(:user)
+    # let(:admin) { Fabricate(:admin) }
+    let(:user) { Fabricate(:user) }
+    #
+    # before { set_current_admin admin }
+    #
+    # context "guest users" do
+    #   it_behaves_like "requires sign in" do
+    #     let(:action) { get :show, id: user.id }
+    #   end
+    # end
+    #
+    # context "non-admin users" do
+    #   it_behaves_like "requires admin" do
+    #     let(:action) { get :show, id: user.id }
+    #   end
+    # end
 
-      get :show, id: user.id
-      expect(response).to have_http_status(:success)
+    context "admin users" do
+      it "returns a successful http request status code" do
+        get :show, id: user.id
+        expect(response).to have_http_status(:success)
+      end
     end
   end
 
@@ -27,96 +38,37 @@ RSpec.describe UsersController, :type => :controller do
 
   describe "POST #create" do
     context "a successful create" do
-      it "save the new user object" do
+      it "saves the new user object" do
         post :create, user: Fabricate.attributes_for(:user)
+
         expect(User.count).to eq(1)
       end
 
       it "redirects to the user show action" do
         post :create, user: Fabricate.attributes_for(:user)
-        expect(response).to redirect_to user_path(User.last) #or User.first. user_path requires the id of the user
+
+        expect(response).to redirect_to user_path(User.last)
       end
 
-      it "an unsuccessful create" do
+      it "sets the success flash message" do
         post :create, user: Fabricate.attributes_for(:user)
+
         expect(flash[:success]).to eq("User has been created")
       end
     end
 
     context "an unsuccessful create" do
-      it "does not save the user object with invalid input" do
+      it "does not save the user object with invalid inputs" do
         post :create, user: Fabricate.attributes_for(:user, first_name: nil)
+
         expect(User.count).to eq(0)
       end
 
       it "sets the failure flash message" do
         post :create, user: Fabricate.attributes_for(:user, first_name: nil)
+
         expect(flash[:danger]).to eq("User has not been created")
       end
-    end
-  end
-
-  describe "GET #edit" do
-    let(:user) { Fabricate(:user) }
-
-    it "sends a successful edit request" do
-      get :edit, id: user
-      expect(response).to have_http_status(:success)
-    end
-  end
-
-  describe "PUT #update" do
-    context "successful update" do
-      let(:carlos) { Fabricate(:user, first_name: "Carlos") }
-
-      it "updates the modified user object" do
-        put :update, user: Fabricate.attributes_for(:user, first_name: "Charles"), id: carlos.id
-        expect(User.last.first_name).to eq("Charles")
-        expect(User.last.first_name).not_to eq("Carlos")
-      end
-
-      it "sets the success flash message" do
-        put :update, user: Fabricate.attributes_for(:user, first_name: "Charles"), id: carlos.id
-        expect(flash[:success]).to eq("User has been updated")
-      end
-
-      it "redirect to the show action" do
-        put :update, user: Fabricate.attributes_for(:user, first_name: "Charles"), id: carlos.id
-        expect(response).to redirect_to(user_path(User.last))
-      end
-    end
-
-    context "unsuccessful update" do
-      let(:carlos) { Fabricate(:user, first_name: "Carlos") }
-
-      it "does not updates the user object with invalid inputs" do
-        put :update, user: Fabricate.attributes_for(:user, first_name: nil), id: carlos.id
-        expect(User.last.first_name).to eq("Carlos")
-      end
-
-      it "sets the failure flash message" do
-        put :update, user: Fabricate.attributes_for(:user, first_name: nil), id: carlos.id
-        expect(flash[:danger]).to eq("User has not been updated")
-      end
-    end
-  end
-
-  describe "DELETE #destroy" do
-    let(:user) { Fabricate(:user) }
-
-    it "deletes the user with the given id" do
-      delete :destroy, id: user.id
-      expect(User.count).to eq(0)
-    end
-
-    it "sets the flash message" do
-      delete :destroy, id: user.id
-      expect(flash[:success]).to eq("User has been deleted")
-    end
-
-    it "redirects to the index action" do
-      delete :destroy, id: user.id
-      expect(response).to redirect_to users_path
     end
   end
 

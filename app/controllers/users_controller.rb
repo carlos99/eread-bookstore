@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :require_sign_in, only: [:index]
+  before_action :require_admin, only: [:index]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -16,7 +18,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash.now[:success] = "User has been created"
-      redirect_to @user
+      redirect_to user_path(@user)
     else
       flash.now[:danger] = "User has not been created"
       render :new
