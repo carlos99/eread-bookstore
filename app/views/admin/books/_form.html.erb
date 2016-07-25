@@ -1,6 +1,6 @@
 <div class="container">
     <div class="col-md-6 col-md-offset-3 book-form-container">
-      <%= bootstrap_form_for(@book, html: {class: 'new-general-form' , role: "form"}) do |f| %>
+      <%= bootstrap_form_for([:admin, @book], html: {class: 'new-general-form' , role: "form"}) do |f| %>
 
         <% if @book.errors.any? %>
           <div id="error_explanation">
