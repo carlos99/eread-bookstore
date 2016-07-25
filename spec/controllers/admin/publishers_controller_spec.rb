@@ -1,124 +1,228 @@
 require 'rails_helper'
+require 'support/macros'
+require 'support/shared_examples'
 
 RSpec.describe Admin::PublishersController, :type => :controller do
-  describe "GET #index" do
-    it "returns a successful http request stutus code" do
-      get :index
+  let(:admin) { Fabricate(:admin) }
 
-      expect(response).to have_http_status(:success)
+  before { set_current_admin admin }
+
+  describe "GET #new" do
+    context "guest users" do
+      it_behaves_like "requires sign in" do
+        let(:action) { get :new }
+      end
+    end
+
+    context "non-admin users" do
+      it_behaves_like "requires admin" do
+        let(:action) { get :new }
+      end
+    end
+
+    context "admin users" do
+      it "returns a successful http request status code" do
+        get :new
+        expect(response).to have_http_status(:success)
+      end
+    end
+  end
+
+  describe "GET #index" do
+    context "guest users" do
+      it_behaves_like "requires sign in" do
+        let(:action) { get :index }
+      end
+    end
+
+    context "non-admin users" do
+      it_behaves_like "requires admin" do
+        let(:action) { get :index }
+      end
+    end
+
+    context "admin users" do
+      it "returns a successful http request stutus code" do
+        get :index
+
+        expect(response).to have_http_status(:success)
+      end
     end
   end
 
   describe "GET #show" do
-    it "returns a successful http request status code" do
-      publisher = Fabricate(:publisher)
+    let(:publisher) { Fabricate(:publisher) }
 
-      get :show, id: publisher.id
-      expect(response).to have_http_status(:success)
+    context "guest users" do
+      it_behaves_like "requires sign in" do
+        let(:action) { get :show, id: publisher }
+      end
     end
-  end
 
-  describe "GET #new" do
-    it "returns a successful http request status code" do
-      get :new
-      expect(response).to have_http_status(:success)
+    context "non-admin users" do
+      it_behaves_like "requires admin" do
+        let(:action) { get :show, id: publisher }
+      end
+    end
+
+    context "admin users" do
+      it "returns a successful http request status code" do
+        get :show, id: publisher
+        expect(response).to have_http_status(:success)
+      end
     end
   end
 
   describe "POST #create" do
-    context "a successful create" do
-      it "save the new publisher object" do
-        post :create, publisher: Fabricate.attributes_for(:publisher)
-        expect(Publisher.count).to eq(1)
-      end
-
-      it "redirects to the publisher show action" do
-        post :create, publisher: Fabricate.attributes_for(:publisher)
-        expect(response).to redirect_to publisher_path(Publisher.last) #or Publisher.first. publisher_path requires the id of the publisher
-      end
-
-      it "an unsuccessful create" do
-        post :create, publisher: Fabricate.attributes_for(:publisher)
-        expect(flash[:success]).to eq("Publisher has been created")
+    context "guest users" do
+      it_behaves_like "requires sign in" do
+        let(:action) { post :create, publisher: Fabricate.attributes_for(:publisher) }
       end
     end
 
-    context "an unsuccessful create" do
-      it "does not save the publisher object with invalid input" do
-        post :create, publisher: Fabricate.attributes_for(:publisher, name: nil)
-        expect(Publisher.count).to eq(0)
+    context "non-admin users" do
+      it_behaves_like "requires admin" do
+        let(:action) { post :create, publisher: Fabricate.attributes_for(:publisher) }
+      end
+    end
+
+    context "admin users" do
+      context "a successful create" do
+        before do
+          post :create, publisher: Fabricate.attributes_for(:publisher)
+        end
+
+        it "saves the new publisher object" do
+          expect(Publisher.count).to eq(1)
+        end
+
+        it "redirects to the show action" do
+          expect(response).to redirect_to admin_publisher_path(Publisher.first)
+        end
+
+        it "sets the success flash message" do
+          post :create, publisher: Fabricate.attributes_for(:publisher)
+          expect(flash[:success]).to eq('Publisher has been created.')
+        end
       end
 
-      it "sets the failure flash message" do
-        post :create, publisher: Fabricate.attributes_for(:publisher, name: nil)
-        expect(flash[:danger]).to eq("Publisher has not been created")
+      context "unsuccessful create" do
+        before do
+          post :create, publisher: Fabricate.attributes_for(:publisher, name: nil)
+        end
+
+        it "it does not save the new publisher object with invalid inputs" do
+          expect(Publisher.count).to eq(0)
+        end
+
+        it "renders to the new template" do
+          expect(response).to render_template :new
+        end
+
+        it "sets the failure flash message" do
+          expect(flash[:danger]).to eq('Publisher has not been created.')
+        end
       end
     end
   end
 
   describe "GET #edit" do
-    let(:publisher) { Fabricate(:publisher) }
-
-    it "sends a successful edit request" do
+    let(:publisher) { Fabricate(:publisher, name: 'Carlos') }
+    it "finds the publisher with the given id and assigns to @publisher variable" do
       get :edit, id: publisher
-      expect(response).to have_http_status(:success)
+      expect(assigns(:publisher)).to eq(publisher)
+    end
+
+    it "renders the edit template" do
+      get :edit, id: publisher
+      expect(response).to render_template('edit')
     end
   end
 
   describe "PUT #update" do
-    context "successful update" do
-      let(:carlos) { Fabricate(:publisher, name: "Carlos") }
-
-      it "updates the modified publisher object" do
-        put :update, publisher: Fabricate.attributes_for(:publisher, name: "Charles"), id: carlos.id
-        expect(Publisher.last.name).to eq("Charles")
-        expect(Publisher.last.name).not_to eq("Carlos")
-      end
-
-      it "sets the success flash message" do
-        put :update, publisher: Fabricate.attributes_for(:publisher, name: "Charles"), id: carlos.id
-        expect(flash[:success]).to eq("Publisher has been updated")
-      end
-
-      it "redirect to the show action" do
-        put :update, publisher: Fabricate.attributes_for(:publisher, name: "Charles"), id: carlos.id
-        expect(response).to redirect_to(publisher_path(Publisher.last))
-      end
-    end
-
-    context "unsuccessful update" do
-      let(:carlos) { Fabricate(:publisher, name: "Carlos") }
-
-      it "does not updates the publisher object with invalid inputs" do
-        put :update, publisher: Fabricate.attributes_for(:publisher, name: nil), id: carlos.id
-        expect(Publisher.last.name).to eq("Carlos")
-      end
-
-      it "sets the failure flash message" do
-        put :update, publisher: Fabricate.attributes_for(:publisher, name: nil), id: carlos.id
-        expect(flash[:danger]).to eq("Publisher has not been updated")
-      end
-    end
-  end
-
-  describe "DELETE #destroy" do
     let(:publisher) { Fabricate(:publisher) }
 
-    it "deletes the publisher with the given id" do
-      delete :destroy, id: publisher.id
-      expect(Publisher.count).to eq(0)
+    context "guest users" do
+      it_behaves_like "requires sign in" do
+        let(:action) { put :update, publisher: Fabricate.attributes_for(:publisher), id: publisher.id }
+      end
     end
 
-    it "sets the flash message" do
-      delete :destroy, id: publisher.id
-      expect(flash[:success]).to eq("Publisher has been deleted")
+    context "non-admin users" do
+      it_behaves_like "requires admin" do
+        let(:action) { put :update, publisher: Fabricate.attributes_for(:publisher), id: publisher.id }
+      end
     end
 
-    it "redirects to the index action" do
-      delete :destroy, id: publisher.id
-      expect(response).to redirect_to publishers_path
+    context "admin users" do
+      context "a successful update" do
+        before do
+          put :update, publisher: Fabricate.attributes_for(:publisher, name: 'Charlie'), id: publisher.id
+        end
+        it "updates the modified publisher object" do
+          expect(Publisher.first.name).to eq('Charlie')
+        end
+
+        it "redirects to the show action" do
+          expect(response).to redirect_to admin_publisher_path(Publisher.first)
+        end
+
+        it "sets the success flash message" do
+          expect(flash[:success]).to eq('Publisher has been updated.')
+        end
+      end
+
+      context "unsuccessful update" do
+        let(:publisher) { Fabricate(:publisher, name: 'Charlie') }
+        before do
+          put :update, publisher: Fabricate.attributes_for(:publisher, name: ''), id: publisher.id
+        end
+
+        it "does not update the modified publisher object" do
+          expect(Publisher.first.name).to eq('Charlie')
+        end
+
+        it "renders the edit template" do
+          expect(response).to render_template :edit
+        end
+
+        it "sets the failure flash message" do
+          expect(flash[:danger]).to eq('Publisher has not been updated.')
+        end
+      end #context
     end
   end
 
+  describe 'DELETE #destroy' do
+    let(:publisher) { Fabricate(:publisher, name: 'Charlie') }
 
+    context "guest users" do
+      it_behaves_like "requires sign in" do
+        let(:action) { delete :destroy, id: publisher }
+      end
+    end
+
+    context "non-admin users" do
+      it_behaves_like "requires admin" do
+        let(:action) { delete :destroy, id: publisher }
+      end
+    end
+
+    context "admin users" do
+      before do
+        delete :destroy, id: publisher
+      end
+      it 'deletes the publisher with the given id' do
+        expect(Publisher.count).to eq(0)
+      end
+
+      it 'sets the flash message' do
+        expect(flash[:success]).to eq('Publisher has been deleted.')
+      end
+
+      it 'redirects to the index page' do
+        expect(response).to redirect_to admin_publishers_path
+      end
+    end
+  end
 end

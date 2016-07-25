@@ -15,10 +15,10 @@ class Admin::PublishersController < Admin::BaseController
   def create
     @publisher = Publisher.new(publisher_params)
     if @publisher.save
-      flash[:success] = "Publisher has been created"
-      redirect_to @publisher
+      flash[:success] = "Publisher has been created."
+      redirect_to [:admin, @publisher]
     else
-      flash[:danger] = "Publisher has not been created"
+      flash[:danger] = "Publisher has not been created."
       render :new
     end
   end
@@ -28,18 +28,18 @@ class Admin::PublishersController < Admin::BaseController
 
   def update
     if @publisher.update(publisher_params)
-      flash[:success] = "Publisher has been updated"
-      redirect_to @publisher
+      flash[:success] = "Publisher has been updated."
+      redirect_to [:admin, @publisher]
     else
-      flash[:danger] = "Publisher has not been updated"
+      flash[:danger] = "Publisher has not been updated."
       render :edit
     end
   end
 
   def destroy
     @publisher.destroy
-    flash[:success] = "Publisher has been deleted"
-    redirect_to publishers_path
+    flash[:success] = "Publisher has been deleted."
+    redirect_to admin_publishers_path
   end
 
   private
