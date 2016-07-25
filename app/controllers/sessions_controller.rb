@@ -8,7 +8,12 @@ class SessionsController < ApplicationController
     if user = User.authenticate(params[:email], params[:password]) #Calling the method in user model
       session[:user_id] = user.id
       flash[:success] = "Sign in Successful"
-      redirect_to root_path
+      if session[:intended_destination]
+        redirect_to session[:intended_destination]
+        session[:intended_destination] = nil
+      else
+        redirect_to root_path
+      end
     else
       flash.now[:danger] = "Envalid Email or Password"
       render :new

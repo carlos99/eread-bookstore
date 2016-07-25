@@ -1,1 +1,9 @@
+
+<% @books.each do |book| %>
+  <div class="col-md-6">
+    <%= book.title %>
+    <%= book.description %>
+  </div>
+<% end %>
+
 <%= link_to "Add New Book", new_book_path %>

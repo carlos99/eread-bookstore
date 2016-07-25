@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
   def require_sign_in
     unless current_user
       flash[:danger] = "Please Sign In First"
+      session[:intended_destination] = request.fullpath
       redirect_to sign_in_path
     end
   end

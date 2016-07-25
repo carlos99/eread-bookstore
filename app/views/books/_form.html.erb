@@ -51,6 +51,19 @@
                 <%= f.file_field :book_cover, placeholder: 'Books Description', class: 'form-control', hide_label: true %>
             </div>
 
+            <div class="form-group">
+              <%= f.hidden_field :book_cover_cache %>
+            </div>
+
+            <div class="form-group">
+              <p>
+                <label>
+                  <%= f.check_box :remove_book_cover %>
+                  Remove Book Cover
+                </label>
+              </p>
+            </div>
+
         <div class="form-group">
           <%= f.submit class: 'btn btn-success'%>
         </div>
