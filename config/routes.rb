@@ -24,4 +24,6 @@ Rails.application.routes.draw do
 
   resources :catalogs, only: [:index, :show]
 
+  resources :carts, only: [:show, :destroy]
+
 end
