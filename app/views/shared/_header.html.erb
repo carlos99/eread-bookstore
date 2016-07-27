@@ -12,6 +12,7 @@
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
           <li class=""><%= link_to "Home", root_path, class: 'nav-link' %></li>
+          <li class=""><%= link_to "Catalogs", catalogs_path, class: 'nav-link' %></li>
           <li><%= link_to "Authors", admin_authors_path, class: 'nav-link' %></li>
           <li><%= link_to "Books", admin_books_path, class: 'nav-link' %></li>
           <% unless current_user %>
