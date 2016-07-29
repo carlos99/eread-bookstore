@@ -1,3 +1,8 @@
 class CartItemsController < ApplicationController
-  #code
+  before_action :set_cart
+
+  def create
+    #code
+  end
+
 end
