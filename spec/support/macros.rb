@@ -13,3 +13,7 @@ end
 def current_user
   User.find(session[:user_id])
 end
+
+def set_current_cart(cart=nil)
+  session[:cart_id] = (cart || Fabricate(:cart)).id
+end
