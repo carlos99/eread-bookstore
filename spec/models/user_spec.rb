@@ -41,4 +41,8 @@ RSpec.describe User, :type => :model do
       expect(carlos.full_name).to eq('Carlos Orellana')
     end
   end
+
+  it { should have_many (:addresses) }
+  it { should accept_nested_attributes_for(:addresses) }
+
 end
