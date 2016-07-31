@@ -34,6 +34,36 @@
             <%= f.password_field :password_confirmation, class: 'form-control', hide_label: true, placeholder: 'Confirm Password' %>
         </div>
 
+      <%= f.fields_for :addresses do |address| %>
+         <div class='form-group'>
+           <label for="address_line1" class="control-label col-md-3">Address</label>
+           <div class='col-md-9'>
+             <%= address.text_field :address_line1, class: 'form-control',id: 'address_line1', hide_label: true %>
+           </div>
+         </div>
+
+         <div class='form-group'>
+           <label for="address_line2" class="control-label col-md-3"></label>
+           <div class='col-md-9'>
+             <%= address.text_field :address_line2, class: 'form-control',id: 'address_line2', hide_label: true %>
+           </div>
+         </div>
+
+         <div class='form-group'>
+           <label class="control-label col-md-3">City</label>
+           <div class='col-md-9'>
+             <%= address.text_field :city, class: 'form-control', hide_label: true %>
+           </div>
+         </div>
+
+         <div class='form-group'>
+           <label for="zipcode" class="control-label col-md-3">Postal Code</label>
+           <div class='col-md-9'>
+             <%= address.text_field :zipcode, class: 'form-control',id: 'zipcode', hide_label: true %>
+           </div>
+         </div>
+      <% end %>
+
         <div class="form-group">
           <%= f.submit 'Sign Up', class: 'btn btn-success'%> Or
           <%= link_to "Sing In", sign_in_path, class: 'sign-up-link' %>
