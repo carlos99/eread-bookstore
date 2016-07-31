@@ -12,8 +12,8 @@ RSpec.describe Order, :type => :model do
     order_item1 = Fabricate(:order_item, order: order, book: book1,
                             quantity: 2, price: 10)
     order_item2 = Fabricate(:order_item, order: order, book: book2,
-                            quantity: 1, price: 20)
+                            quantity: 1, price: 30)
 
-    expect(order.order_total).to eq(40)
+    expect(order.order_total).to eq(50)
   end
 end
