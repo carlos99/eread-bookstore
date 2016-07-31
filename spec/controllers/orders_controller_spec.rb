@@ -12,4 +12,12 @@ require 'support/macros'
        expect(response).to have_http_status(:success)
      end
    end
+
+   it "redirects to the signin page for unauthenticated users" do
+     clear_current_user
+
+     get :new
+     expect(response).to redirect_to(sign_in_path)
+   end
+
  end
