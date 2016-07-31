@@ -28,4 +28,6 @@ Rails.application.routes.draw do
 
   resources :cart_items, only: [:create]
 
+  resources :orders, only: [:new]
+
 end
