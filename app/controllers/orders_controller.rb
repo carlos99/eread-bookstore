@@ -5,4 +5,8 @@ class OrdersController < ApplicationController
     order = Order.new
   end
 
+  def create
+    @order = current_user.orders.build
+  end
+
 end
