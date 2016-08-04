@@ -7,17 +7,27 @@ class OrdersController < ApplicationController
   end
 
   def create
+    #require 'pry';binding.pry
     @order = current_user.orders.build
     transfer_cart_items
 
     if @order.valid?
       total_sale = @cart.total_sale_in_cents
 
+      require "stripe"
       Stripe.api_key = ENV['STRIPE_SECRET_KEY']
       token = params[:stripeToken]
 
+
       begin
+
+        customer = Stripe::Customer.create(
+          :email => params[:stripeEmail],
+          #source: token
+        )
+
         charge = Stripe::Charge.create(
+        :customer => customer.id,
         amount: total_sale,
         currency: "usd",
         source: token

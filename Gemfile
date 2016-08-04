@@ -35,8 +35,8 @@ group :test do
 	gem 'capybara', '2.4.4'
 	gem 'faker'
   gem 'shoulda-matchers', '~> 3.1', '>= 3.1.1', require: false
-  gem 'selenium-webdriver', '~> 2.45'
-  gem 'database_cleaner', "~> 1.4"
+  gem 'selenium-webdriver', '~> 2.53.4'
+  gem 'database_cleaner', "~> 1.5.3"
 end
 
 group :development do
