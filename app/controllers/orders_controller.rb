@@ -20,12 +20,6 @@ class OrdersController < ApplicationController
 
 
       begin
-
-        customer = Stripe::Customer.create(
-          :email => params[:stripeEmail],
-          #source: token
-        )
-
         charge = Stripe::Charge.create(
         :customer => customer.id,
         amount: total_sale,
