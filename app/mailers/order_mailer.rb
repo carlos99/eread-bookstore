@@ -1,4 +1,5 @@
 class OrderMailer < ApplicationMailer
+  helper :orders
 
   def notify_on_successful_order(customer, order)
     @customer = customer
