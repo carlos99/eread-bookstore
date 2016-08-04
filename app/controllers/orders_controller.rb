@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   before_action :set_cart
 
   def new
-    order = Order.new
+    @order = Order.new
   end
 
   def create
@@ -32,7 +32,7 @@ class OrdersController < ApplicationController
 
       rescue Stripe::CardError => e
         flash[:danger] = "Order has not been created\n" + e.message
-      end    
+      end
     end
     redirect_to root_path
   end
