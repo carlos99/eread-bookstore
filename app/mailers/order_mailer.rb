@@ -9,4 +9,11 @@ class OrderMailer < ApplicationMailer
     subject: 'Order Confirmation - EredBook'
   end
 
+  def send_password_reset_link(customer)
+    @customer = customer
+
+    mail to: @customer.email,
+    subject: 'Reset Password - EredBook'
+  end
+
 end
