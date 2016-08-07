@@ -2,11 +2,15 @@
 
   <% @users.each do |user| %>
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
           <%= user.first_name %>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
           <%= user.last_name %>
+        </div>
+
+        <div class="col-md-4">
+          <%= link_to user.email, user %><br>
         </div>
       </div>
 

@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   root to: "welcome#index"
 
 
-  resources :users
-
+  #resources :users
+  resources :users, only: [:index, :show, :new, :create]
   namespace :admin do
     get 'base/index'
 

@@ -3,7 +3,9 @@ class User < ActiveRecord::Base
 
   has_many :addresses
   has_many :orders
-  
+
+  before_create :generate_token
+
   accepts_nested_attributes_for :addresses
 
   validates :first_name, :last_name, :password, presence: true
@@ -19,5 +21,14 @@ class User < ActiveRecord::Base
     user = User.find_by(email: email)
     user && user.authenticate(password)
   end
+
+# Returning the token, using the to_param method provided by rails.
+  def to_param
+    token
+  end
+
+    def generate_token
+      self.token = SecureRandom.urlsafe_base64
+    end
 
 end
