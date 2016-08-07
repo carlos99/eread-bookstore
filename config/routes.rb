@@ -20,12 +20,13 @@ Rails.application.routes.draw do
   get '/sign_in', to: "sessions#new", as: "sign_in"
   post '/sign_in', to: "sessions#create"
   get 'reset_password', to: 'password_resets#new'
+  get '/expired_token', to: 'password_resets#expired_token'
 
   resource :session
   resources :catalogs, only: [:index, :show]
   resources :carts, only: [:show, :destroy]
   resources :cart_items, only: [:create]
   resources :orders, only: [:new, :create]
-  resources :password_resets, only: [:create]
+  resources :password_resets, only: [:create, :edit, :update]
 
 end
