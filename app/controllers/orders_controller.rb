@@ -7,24 +7,20 @@ class OrdersController < ApplicationController
   end
 
   def create
-    #require 'pry';binding.pry
     @order = current_user.orders.build
     transfer_cart_items
 
     if @order.valid?
       total_sale = @cart.total_sale_in_cents
 
-      require "stripe"
       Stripe.api_key = ENV['STRIPE_SECRET_KEY']
       token = params[:stripeToken]
 
-
       begin
         charge = Stripe::Charge.create(
-        :customer => customer.id,
-        amount: total_sale,
-        currency: "usd",
-        source: token
+          amount: total_sale,
+          currency: "usd",
+          source: token
         )
 
         @order.save
@@ -33,7 +29,6 @@ class OrdersController < ApplicationController
 
         OrderMailer.notify_on_successful_order(current_user, @order).deliver_now
         flash[:success] = "Order has been created"
-
       rescue Stripe::CardError => e
         flash[:danger] = "Order has not been created\n" + e.message
       end
@@ -41,8 +36,8 @@ class OrdersController < ApplicationController
     redirect_to root_path
   end
 
-  private
 
+private
   def transfer_cart_items
     @cart.cart_items.each do |item|
       @order.order_items << OrderItem.new(
@@ -52,5 +47,4 @@ class OrdersController < ApplicationController
       )
     end
   end
-
 end
