@@ -16,6 +16,16 @@
               <%= link_to "Sing Up", new_user_path, class: 'sign-up-link' %>
             </div>
 
+            <div class="form-group">
+             <div class="col-md-2" id="signup-link">
+               Or<br>
+               <%= link_to "Sign up", new_user_path %>
+             </div>
+             <div class="col-md-8">
+               <%= link_to "Forgotten Password?", reset_password_path %>
+             </div>
+           </div>
+
         <% end %>
       </div>
   </div>

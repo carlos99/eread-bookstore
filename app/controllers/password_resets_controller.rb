@@ -12,7 +12,7 @@ class PasswordResetsController < ApplicationController
         render template: '/password_resets/confirm_password_reset'
         false #stopping the render of the create template
     else
-      flash[:danger] = params[:email] ? "Invalid Email." : "Email can't be blank."
+      flash[:danger] = params[:email].blank? ? "Email can't be blank." : "Invalid Email."
       redirect_to reset_password_path
     end
   end
@@ -27,7 +27,7 @@ class PasswordResetsController < ApplicationController
 
     if @user
       @user.password = params[:user][:password]
-      @user.generate_toke
+      @user.generate_token
       @user.save
       flash[:success] = "Password has been changed."
       redirect_to sign_in_path
