@@ -4,6 +4,31 @@
 </p>
 
 <p>
+  <strong>Book Description</strong>
+  <%= @book.description %>
+</p>
+
+<p>
+  <strong>Book ISBN</strong>
+  <%= @book.isbn %>
+</p>
+
+<p>
+  <strong>Price</strong>
+  <%= @book.price %>
+</p>
+
+<p>
+  <strong>Pages</strong>
+  <%= @book.page_count %>
+</p>
+
+<p>
+  <strong>Published At</strong>
+  <%= @book.published_at %>
+</p>
+
+<p>
   <strong>Book Cover</strong>
-  <%= image_tag (@book.book_cover.url) %>
+  <%= image_tag (@book.book_cover.url), class: 'img-responsive img-ft' %>
 </p>
