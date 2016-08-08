@@ -12,7 +12,6 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    @user.addresses.build #"making fields availables to the views"
   end
 
   def create
@@ -49,7 +48,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, addresses_attributes: [:address_line1, :address_line2, :city, :zipcode])
+      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
     end
 
 end

@@ -1,3 +1,4 @@
+#IMPORTANT: All test related with address will fail because the model no longer exist
 require 'rails_helper'
 
 RSpec.feature "Resetting Users' Password" do

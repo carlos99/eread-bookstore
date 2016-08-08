@@ -1,12 +1,9 @@
 class User < ActiveRecord::Base
   has_secure_password
 
-  has_many :addresses
   has_many :orders
 
   before_create :generate_token
-
-  accepts_nested_attributes_for :addresses
 
   validates :first_name, :last_name, :password, presence: true
 
