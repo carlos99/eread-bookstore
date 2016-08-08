@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
 
   def index
-    #code
+    @books = Book.all
   end
 end

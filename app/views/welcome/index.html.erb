@@ -19,6 +19,17 @@ sociosqu ad litora torquent per …”
   <div class="row">
     <h2 class="sub-titles">RECENT BOOKS</h2>
   </div>
+<div class="row">
+  <% @books.each do |book| %>
+
+      <div class="col-md-3">
+      <%= image_tag(book.book_cover_url, class: 'img-responsive img-ft' ) if book.book_cover? %>
+        <p class="newest-book-title">  <%= book.title %></p>
+        <p class="newest-price"><%= number_to_currency(book.price) %></p>
+      </div>
+
+  <% end %>
+</div>
   <div class="row">
     <div class="col-md-3">
       <img class="img-responsive img-ft" src="https://s3.amazonaws.com/variousbucket/cover4.jpg" alt="Book Image" />
