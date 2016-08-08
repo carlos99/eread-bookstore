@@ -44,7 +44,7 @@
           </div>
 
             <div class="form-group checkbox-authors">
-                <%= f.collection_check_boxes :author_ids, @authors, :id, :first_name, class: 'form-control', hide_label: true %>
+                <%= f.collection_check_boxes :author_ids, @authors, :id, :full_name, class: 'form-control', hide_label: true %>
             </div>
 
             <div class="form-group">
@@ -53,15 +53,6 @@
 
             <div class="form-group">
               <%= f.hidden_field :book_cover_cache %>
-            </div>
-
-            <div class="form-group">
-              <p>
-                <label>
-                  <%= f.check_box :remove_book_cover %>
-                  Remove Book Cover
-                </label>
-              </p>
             </div>
 
         <div class="form-group">
