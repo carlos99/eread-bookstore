@@ -1,7 +1,7 @@
 class Admin::PublishersController < Admin::BaseController
   before_action :set_publisher, only: [:show, :edit, :update, :destroy]
   def index
-    #code
+    @publishers = Publisher.all
   end
 
   def show

@@ -1,1 +1,7 @@
-<h1>Hello</h1>
+<% @publishers.each do |publisher| %>
+  <div class="col-md-6">
+    <%= publisher.name %>
+  </div>
+<% end %>
+
+<%= link_to "Add New Publisher", new_admin_publisher_path %>
