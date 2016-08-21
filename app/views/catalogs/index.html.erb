@@ -1,4 +1,4 @@
--<h1>Catalog Index Page</h1>
+<h1>Catalog Index Page</h1>
 
 <section>
  <header>
@@ -14,14 +14,15 @@
  </div>
 
  <% @books.each do |book| %>
-   <p class='book-title'>
-     <%= link_to book.title, catalog_path(book) %><br>
-     <span class='price-class'><%= number_to_currency(book.price) %></span>
-   </p>
-   <p class='book-image'><%= image_tag(book.book_cover_url) if book.book_cover? %></p>
-   <div>
-     <hr>
-   </div>
+    <div class="col-md-6">
+      <p class='book-title'>
+        <%= link_to book.title, catalog_path(book) %><br>
+        <span class='price-class'><%= number_to_currency(book.price) %></span>
+      </p>
+      <p class='book-image'>
+        <%= image_tag(book.book_cover_url, class: 'img-responsive img-ft') if book.book_cover? %>
+      </p>
+    </div>
  <% end %>
  <br>
 </section>

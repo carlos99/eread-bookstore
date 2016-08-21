@@ -2,7 +2,7 @@ class CatalogsController < ApplicationController
   before_action :set_cart_if_session
 
   def index
-    @books = Book.paginate(:page => params[:page], :per_page => 6)
+    @books = Book.paginate(:page => params[:page], :per_page => 6).order("id DESC")
   end
 
   def show

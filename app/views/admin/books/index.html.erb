@@ -2,8 +2,9 @@
 <% @books.each do |book| %>
   <div class="col-md-6">
     <%= book.title %>
-    <%= book.description %>
+    <%= link_to "Edit Book", edit_admin_book_path(book) %>
   </div>
+
 <% end %>
 
 <%= link_to "Add New Book", new_admin_book_path %>

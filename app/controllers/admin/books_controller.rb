@@ -2,7 +2,7 @@ class Admin::BooksController < Admin::BaseController
   before_action :set_book, except: [:index, :new, :create]
 
   def index
-    @books = Book.all
+    @books = Book.all.order("id DESC")
   end
 
   def show
