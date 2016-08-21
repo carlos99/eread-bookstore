@@ -19,74 +19,21 @@ sociosqu ad litora torquent per …”
   <div class="row">
     <h2 class="sub-titles">RECENT BOOKS</h2>
   </div>
-  <div class="row">
-    <div class="col-md-3">
-      <img class="img-responsive img-ft" src="https://s3.amazonaws.com/variousbucket/cover4.jpg" alt="Book Image" />
-      <p class="newest-book-title">
-        Insurgent
-      </p>
-      <p class="newest-author">John Doe</p>
-      <p class="newest-price">$45.00</p>
-    </div>
-    <div class="col-md-3">
-      <img class="img-responsive img-ft" src="https://s3.amazonaws.com/variousbucket/cover1.jpg" alt="Book Image" />
-      <p class="newest-book-title">
-        The Pale King
-      </p>
-      <p class="newest-author">John Doe</p>
-      <p class="newest-price">$45.00</p>
-    </div>
-    <div class="col-md-3">
-      <img class="img-responsive img-ft" src="https://s3.amazonaws.com/variousbucket/cover3.jpg" alt="Book Image" />
-      <p class="newest-book-title">
-        Book Title
-      </p>
-      <p class="newest-author">John Doe</p>
-      <p class="newest-price">$45.00</p>
-    </div>
-    <div class="col-md-3">
-      <img class="img-responsive img-ft" src="https://s3.amazonaws.com/variousbucket/cover2.jpg" alt="Book Image" />
-      <p class="newest-book-title">
-        Book Title
-      </p>
-      <p class="newest-author">John Doe</p>
-      <p class="newest-price">$45.00</p>
-    </div>
-  </div>
 
-  <div class="row" style="margin-top: 50px;">
-    <div class="col-md-3">
-      <img class="img-responsive img-ft" src="https://s3.amazonaws.com/variousbucket/cover5.jpg" alt="Book Image" />
-      <p class="newest-book-title">
-        The Lord of the Rings
-      </p>
-      <p class="newest-author">John Doe</p>
-      <p class="newest-price">$45.00</p>
+  <%@books.each do |book| %>
+    <div class="recent-book-container">
+      <div class="col-md-3">
+        <%= image_tag(book.book_cover_url, class: 'img-responsive img-ft') if book.book_cover? %>
+        <p class="newest-book-title">
+          <%= book.title %>
+        </p>
+        <p class="newest-author">
+          <%= book.price%>
+        </p>
+        <p class="newest-price">
+          <%= book.price%>
+        </p>
+      </div>
     </div>
-    <div class="col-md-3">
-      <img class="img-responsive img-ft" src="https://s3.amazonaws.com/variousbucket/cover6.jpg" alt="Book Image" />
-      <p class="newest-book-title">
-        Fifty Shades of Grey
-      </p>
-      <p class="newest-author">John Doe</p>
-      <p class="newest-price">$45.00</p>
-    </div>
-    <div class="col-md-3">
-      <img class="img-responsive img-ft" src="https://s3.amazonaws.com/variousbucket/cover7.jpg" alt="Book Image" />
-      <p class="newest-book-title">
-        Harry Potter
-      </p>
-      <p class="newest-author">John Doe</p>
-      <p class="newest-price">$45.00</p>
-    </div>
-    <div class="col-md-3">
-      <img class="img-responsive img-ft" src="https://s3.amazonaws.com/variousbucket/cover3.jpg" alt="Book Image" />
-      <p class="newest-book-title">
-        Book Title
-      </p>
-      <p class="newest-author">John Doe</p>
-      <p class="newest-price">$45.00</p>
-    </div>
-  </div>
-
+  <% end %>
 </section>

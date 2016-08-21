@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
 
   def index
-    #code
+    @books = Book.order("id DESC").limit(6)
   end
 end
