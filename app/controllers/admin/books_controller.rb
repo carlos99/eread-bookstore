@@ -2,7 +2,7 @@ class Admin::BooksController < Admin::BaseController
   before_action :set_book, except: [:index, :new, :create]
 
   def index
-    @books = Book.all
+    @books = Book.all.order("id DESC")
   end
 
   def show
@@ -28,9 +28,12 @@ class Admin::BooksController < Admin::BaseController
   end
 
   def edit
+    @publishers = Publisher.all
+    @authors = Author.all
   end
 
   def update
+    @publishers = Publisher.all
     if @book.update(book_params)
       flash[:success] = 'Book has been updated'
       redirect_to [:admin, @book]

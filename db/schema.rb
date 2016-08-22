@@ -11,22 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160807170038) do
+ActiveRecord::Schema.define(version: 20160818134619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "addresses", force: :cascade do |t|
-    t.string   "address_line1"
-    t.string   "address_line2"
-    t.string   "city"
-    t.string   "zipcode"
-    t.integer  "user_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
-  add_index "addresses", ["user_id"], name: "index_addresses_on_user_id", using: :btree
 
   create_table "authors", force: :cascade do |t|
     t.string   "first_name"
@@ -37,7 +25,7 @@ ActiveRecord::Schema.define(version: 20160807170038) do
 
   create_table "books", force: :cascade do |t|
     t.string   "title"
-    t.string   "isbn",         limit: 13
+    t.string   "isbn",         limit: 20
     t.text     "description"
     t.date     "published_at"
     t.integer  "page_count"
@@ -116,7 +104,6 @@ ActiveRecord::Schema.define(version: 20160807170038) do
     t.string   "token"
   end
 
-  add_foreign_key "addresses", "users"
   add_foreign_key "books", "publishers"
   add_foreign_key "cart_items", "books"
   add_foreign_key "cart_items", "carts"
