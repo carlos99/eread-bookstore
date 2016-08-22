@@ -1,9 +1,12 @@
 <section>
  <div class='row'>
-   <div class='col-md-12'>
+   <div class='col-md-10'>
      <header class='col-md-10'>
        <h3 class='titles' id='book-show'><%= "#{@book.title}" %>'s Details</h3>
      </header>
+     <div class="col-md-10">
+       <%= image_tag(@book.book_cover_url, class: 'img-responsive img-ft') if @book.book_cover? %>
+     </div>
      <div class='col-md-10'>
        <div class='col-md-3'>
          <strong>ISBN:</strong>
@@ -81,7 +84,7 @@
          <strong>Book cover:</strong>
        </div>
        <div class='col-md-9'>
-        
+
        </div>
      </div>
      <div class='col-md-10'>

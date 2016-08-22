@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160808035446) do
+
+ActiveRecord::Schema.define(version: 20160818134619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +26,7 @@ ActiveRecord::Schema.define(version: 20160808035446) do
 
   create_table "books", force: :cascade do |t|
     t.string   "title"
-    t.string   "isbn",         limit: 13
+    t.string   "isbn",         limit: 20
     t.text     "description"
     t.date     "published_at"
     t.integer  "page_count"
