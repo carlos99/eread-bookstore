@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    @user.addresses.build #"making fields availables to the views"
+    #@user.addresses.build #"making fields availables to the views"
   end
 
   def create
