@@ -140,6 +140,12 @@ p{
   margin: auto;
 }
 
+@media screen and (max-width: 600px) {
+  .img-ft{
+    width: 80%;
+  }
+}
+
 footer{
   display: block;
   height: 50px;
