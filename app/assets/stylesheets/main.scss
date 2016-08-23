@@ -62,13 +62,14 @@ p{
   display: -webkit-flex;
   display: flex;
   height: 400px;
-
   justify-content: center;
   width: 100%;
 
   h1{
     color: #fff;
     font-size: 50px;
+    width: 100%;
+    text-align: center;
   }
 }
 
@@ -144,6 +145,10 @@ p{
   .img-ft{
     width: 80%;
   }
+
+  .main-banner h1{
+    width: 90%;
+  }
 }
 
 footer{
@@ -195,4 +200,12 @@ footer{
 .wmargin{
   margin-right: 0 !important;
   margin-left: 0 !important;
+}
+
+.see-all-books{
+  color: #f60;
+  font-size: 18px;
+  text-align: center;
+  display: block;
+
 }
