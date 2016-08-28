@@ -1,26 +1,20 @@
 <div class="main-banner">
-  <h1 class="main-titles">
-    FIND YOUR PASSION, FIND YOUR <strong>BOOK.</strong>
-  </h1>
+  <section class="main-text-b">
+    <p>
+      FIND YOUR PASSION, FIND YOUR BOOKS
+    </p>
+  </section>
 </div>
- </div> <!--End of fixed content -->
 <section class="container introduction">
   <h2 class="sub-titles">
         MORE THAN JUST BOOKS...
   </h2>
   <p>
-
-“ Nunc imperdiet dictum risus finibus luctus. Quisque vestibulum nibh quis elemen
-tum vestibulum. Morbi a purus nec metus aliquam accumsan at in orci. Class aptent taciti
-sociosqu ad litora torquent per …”
+    “Nunc imperdiet dictum risus finibus luctus. Quisque vestibulum nibh quis elemen tum vestibulum. Morbi a purus nec metus aliquam accumsan at in orci. Class aptent taciti sociosqu ad litora torquent per”
   </p>
 </section>
 
 <section class="newest-book">
-  <div class="row row-no-margin">
-    <h2 class="sub-titles">RECENT BOOKS</h2>
-  </div>
-
   <div class="container">
     <% @books.each_slice(5) do |books| %>
       <div class="row" style="margin-top: 35px;">
@@ -31,7 +25,7 @@ sociosqu ad litora torquent per …”
               <%= book.title %>
             </p>
             <p class="newest-price">
-              <%= book.price%>
+              $ <%= book.price%>
             </p>
           </div>
         <% end %>

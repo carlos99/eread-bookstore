@@ -1,7 +1,7 @@
 $(document).ready(function() {
   function setHeight() {
     windowHeight = $(window).innerHeight();
-    $('.fixed-content').css('min-height', windowHeight);
+    $('.main-banner').css('min-height', windowHeight);
   };
   setHeight();
 

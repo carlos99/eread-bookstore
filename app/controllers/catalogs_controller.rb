@@ -1,4 +1,6 @@
 class CatalogsController < ApplicationController
+
+  #layout 'internal_layout'
   before_action :set_cart_if_session
 
   def index

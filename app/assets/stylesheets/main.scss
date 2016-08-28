@@ -3,31 +3,38 @@ body{
 }
 
 header{
-  background: none;
   min-height: 90px;
-  position: relative;
-  z-index: 1;
+  background: rgba(0, 0, 0, 0.5);
+  right: 0;
+  left: 0;
+}
+
+@media screen and (max-width: 769px){
+  header{
+    background: none;
+  }
 }
 
 h1{
-  //font-family: 'Roboto Condensed', sans-serif !important;
-  //font-weight: 600 !important;
+  font-family: 'Lato', sans-serif !important;
+  font-weight: 400;
+}
+
+h2{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 .sub-titles{
   color: rgba(0, 0, 0, 0.7);
-  font-family: 'Lato', sans-serif;
-  font-weight: 600;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   text-align: center;
 }
 
-p{
-  font-family: 'Lato', sans-serif;
-}
-
 .row-no-margin{
-  //background: #262935;
-  //margin-bottom: 50px;
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
@@ -40,7 +47,9 @@ p{
 
   .nav-link{
     color: #fff !important;
-    font-size: 18px;
+    font-size: 17px;
+    font-family: 'Ubuntu';
+    font-weight: 300;
     -webkit-transition: color 0.16s;
     -moz-transition: color 0.3s;
     transition: color 0.36s;
@@ -56,30 +65,31 @@ p{
 }
 
 .fixed-content{
-  background-image: url("https://s3.amazonaws.com/variousbucket/new_main_banner.jpg");
+
 }
 
-@media screen and (min-width: 1200px){
   .main-banner{
-    margin-top: 16%;
-  }
-}
-
-@media screen and (min-width: 1200px){
-  .main-banner{
-    margin-top: 16%;
-  }
-}
-
-.main-banner{
-  h1{
-    color: #fff;
-    font-size: 50px;
+    background-image: url("https://s3.amazonaws.com/variousbucket/new_main_banner.jpg");
+    display: table;
     width: 100%;
-    text-align: center;
-    font-family: 'Lato' !important;
-    font-weight: 400;
   }
+
+// .main-banner{
+//   p{
+//     color: #fff;
+//     font-size: 50px;
+//     width: 100%;
+//     text-align: center;
+//     font-family: 'Lato' !important;
+//     font-weight: 400;
+//     display: table-cell;
+//     vertical-align: middle;
+//   }
+// }
+
+.main-titles{
+  display: table-cell;
+  vertical-align: middle;
 }
 
 .publisher-frm{
@@ -110,15 +120,18 @@ p{
     width: 60%;
     font-size: 18px;
     margin: auto;
+    font-family: 'Ubuntu';
+    font-weight: 300;
   }
 }
 
 .newest-book-title{
-  color: #fff;
+  color: #666666;
   font-size: 16px;
   margin-top: 10px;
   width: 90%;
-  margin: auto;
+  font-weight: 400;
+  margin: 10px auto auto auto;
 }
 
 .newest-price{
@@ -128,11 +141,17 @@ p{
 }
 
 .newest-book{
-  background: #262935;
   padding-bottom: 70px;
 
   p{
     text-align: center;
+    font-family: 'Titillium Web' !important;
+    font-weight: 300;
+  }
+
+  a{
+    font-family: 'Titillium Web' !important;
+    font-weight: 300;
   }
 
   h2{
@@ -143,11 +162,11 @@ p{
   }
 
   .newest-book-title{
-    color: #fff;
+    color: #666666;
     font-size: 16px;
     margin-top: 10px;
     width: 90%;
-    margin: auto;
+    margin: 10px auto auto auto;
   }
 
   .newest-author{
@@ -161,6 +180,9 @@ p{
 }
 
 .img-ft{
+  -moz-box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
+	-webkit-box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
+	box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
   height: 240px !important;
   margin: auto;
 }
@@ -290,4 +312,35 @@ div#paginate{
     margin: auto;
     width: 90%;
   }
+}
+
+.inter-banner{
+  background-image: url('https://s3.amazonaws.com/variousbucket/internal_banner1.jpg');
+  background-size: cover;
+  height: 300px;
+  display: table;
+  vertical-align: middle;
+  width: 100%;
+
+  h2{
+    vertical-align: middle;
+    display: table-cell;
+    color: #fff;
+    text-align: center;
+    font-family: "Lato";
+    font-weight: 400;
+    font-size: 50px;
+  }
+}
+
+.main-text-b{
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  color: #fff;
+  font-size: 50px;
+  width: 100%;
+  text-align: center;
+  font-family: 'Lato' !important;
+  font-weight: 400;
 }
