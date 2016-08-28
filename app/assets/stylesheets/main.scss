@@ -125,21 +125,6 @@ h2{
   }
 }
 
-.newest-book-title{
-  color: #666666;
-  font-size: 16px;
-  margin-top: 10px;
-  width: 90%;
-  font-weight: 400;
-  margin: 10px auto auto auto;
-}
-
-.newest-price{
-  color: #f07c29;
-  font-size: 16px;
-  font-weight: 600;
-}
-
 .newest-book{
   padding-bottom: 70px;
 
@@ -292,7 +277,7 @@ footer{
 div#paginate{
   a, span, em{
     border: 1px solid #ccc;
-    color: #f07c29;
+    color: #666666;
     font-weight: bold;
     padding: 6px 12px;
     text-decoration: none;
@@ -302,7 +287,7 @@ div#paginate{
     }
   }
   .current{
-    color: #337ab7;
+    color: #262626;
   }
 }
 
@@ -345,9 +330,17 @@ div#paginate{
   font-weight: 400;
 }
 
+.container-all-books{
+  margin-top: 100px;
+}
+
 .container-footer{
   background-color: #262626;
   color: #fff;
   font-family: 'Roboto';
   font-weight: 600;
+}
+
+.books-catalog-iteration{
+  text-align: center;
 }

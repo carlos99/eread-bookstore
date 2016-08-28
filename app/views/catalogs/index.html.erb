@@ -2,7 +2,7 @@
   <h2>Explore all books</h2>
 </section>
 
-<div class="container">
+<div class="container container-all-books">
 
   <section>
      <% if @books.empty? %>
@@ -10,14 +10,15 @@
      <% end %>
 
    <% @books.each do |book| %>
-      <div class="col-md-4">
-        <p class='newest-book-title'>
-          <%= link_to book.title, catalog_path(book) %><br>
-          <p class='newest-price'><%= number_to_currency(book.price) %></p>
-        </p>
+      <div class="col-md-4 books-catalog-iteration">
         <p class='book-image'>
           <%= image_tag(book.book_cover_url, class: 'img-responsive img-ft') if book.book_cover? %>
         </p>
+        <p>
+          <%= link_to book.title, catalog_path(book), class: 'newest-book-title' %><br>
+          <p class='newest-price'><%= number_to_currency(book.price) %></p>
+        </p>
+
       </div>
    <% end %>
    <br>
