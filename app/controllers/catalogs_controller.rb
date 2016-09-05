@@ -7,6 +7,7 @@ class CatalogsController < ApplicationController
     @books = Book.paginate(:page => params[:page], :per_page => 6).order("id DESC")
   end
 
+  layout 'internal_layout'
   def show
     @book = Book.find params[:id]
   end

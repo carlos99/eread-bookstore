@@ -1,98 +1,37 @@
 <section>
  <div class='row'>
    <div class='col-md-10'>
-     <header class='col-md-10'>
-       <h3 class='titles' id='book-show'><%= "#{@book.title}" %>'s Details</h3>
-     </header>
-     <div class="col-md-10">
-       <%= image_tag(@book.book_cover_url, class: 'img-responsive img-ft') if @book.book_cover? %>
+     <div class="col-md-5">
+       <%= image_tag(@book.book_cover_url, class: 'img-responsive img-single') if @book.book_cover? %>
      </div>
-     <div class='col-md-10'>
-       <div class='col-md-3'>
-         <strong>ISBN:</strong>
+     <section class='col-md-5'>
+       <div class="row">
+         <h3 class='title-h3' id='book-show'><%= "#{@book.title}" %>'s Details</h3>
        </div>
-       <div class='col-md-9'>
+       <div class="row">
+         ISBN:
          <%= @book.isbn %>
        </div>
-     </div>
-     <div class='col-md-10'>
-       <hr>
-     </div>
-
-     <div class='col-md-10'>
-       <div class='col-md-3'>
-         <strong>Page count:</strong>
-       </div>
-       <div class='col-md-9'>
-         <%= @book.page_count %>
-       </div>
-     </div>
-     <div class='col-md-10'>
-       <hr>
-     </div>
-
-     <div class='col-md-10'>
-       <div class='col-md-3'>
-         <strong>Price:</strong>
-       </div>
-       <div class='col-md-9'>
+       <div class="row">
+         Price:
          <%= number_to_currency(@book.price) %>
        </div>
-     </div>
-     <div class='col-md-10'>
-       <hr>
-     </div>
-
-     <div class='col-md-10'>
-       <div class='col-md-3'>
-         <strong>Description:</strong>
-       </div>
-       <div class='col-md-9'>
+       <div class="row">
+         Description:
          <%= @book.description %>
        </div>
-     </div>
-     <div class='col-md-10'>
-       <hr>
-     </div>
-
-     <div class='col-md-10'>
-       <div class='col-md-3'>
-         <strong>Publisher:</strong>
-       </div>
-       <div class='col-md-9'>
+       <div class="row">
+         Publisher:
          <%= @book.publisher.name %>
        </div>
-     </div>
-     <div class='col-md-10'>
-       <hr>
-     </div>
-
-     <div class='col-md-10'>
-       <div class='col-md-3'>
-         <strong>Published at:</strong>
-       </div>
-       <div class='col-md-9'>
+       <div class="row">
+         Published at:
          <%= @book.published_at %>
        </div>
-     </div>
-     <div class='col-md-10'>
-       <hr>
-     </div>
-
-     <div class='col-md-10'>
-       <div class='col-md-3'>
-         <strong>Book cover:</strong>
-       </div>
-       <div class='col-md-9'>
-
-       </div>
-     </div>
-     <div class='col-md-10'>
-       <hr>
-     </div>
-     <div class="col-md-10">
-       <%= button_to "Add to cart", cart_items_path(book_id: @book.id), remote: true, class: 'btn btn-success' %>
-     </div>
+     </section>
+   </div>
+   <div class="col-md-2">
+     <%= button_to "Add to cart", cart_items_path(book_id: @book.id), remote: true, class: 'btn btn-add-carts' %>
    </div>
  </div>
 </section>

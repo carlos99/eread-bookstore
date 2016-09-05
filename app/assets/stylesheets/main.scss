@@ -4,7 +4,7 @@ body{
 
 header{
   min-height: 90px;
-  background: rgba(0, 0, 0, 0.5);
+  //background: rgba(0, 0, 0, 0.5);
   right: 0;
   left: 0;
 }
@@ -27,6 +27,12 @@ h2{
   margin-bottom: 0 !important;
 }
 
+.title-h3{
+  font-family: 'Titillium Web';
+  font-size: 30px;
+  font-weight: 400;
+}
+
 .sub-titles{
   color: rgba(0, 0, 0, 0.7);
   font-family: 'Roboto', sans-serif;
@@ -46,7 +52,6 @@ h2{
   min-height: 80px;
 
   .nav-link{
-    color: #fff !important;
     font-size: 17px;
     font-family: 'Ubuntu';
     font-weight: 300;
@@ -55,8 +60,21 @@ h2{
     transition: color 0.36s;
 
     &:hover{
-      border-bottom: 2px solid #f07c29;
+      border-bottom: 2px solid #ccc;
     }
+  }
+}
+
+.nav-link{
+  font-size: 17px;
+  font-family: 'Ubuntu';
+  font-weight: 300;
+  -webkit-transition: color 0.16s;
+  -moz-transition: color 0.3s;
+  transition: color 0.36s;
+
+  &:hover{
+    border-bottom: 2px solid #ccc;
   }
 }
 
@@ -64,28 +82,11 @@ h2{
   text-align: center;
 }
 
-.fixed-content{
-
+.main-banner{
+  background-image: url("https://s3.amazonaws.com/variousbucket/new_main_banner.jpg");
+  display: table;
+  width: 100%;
 }
-
-  .main-banner{
-    background-image: url("https://s3.amazonaws.com/variousbucket/new_main_banner.jpg");
-    display: table;
-    width: 100%;
-  }
-
-// .main-banner{
-//   p{
-//     color: #fff;
-//     font-size: 50px;
-//     width: 100%;
-//     text-align: center;
-//     font-family: 'Lato' !important;
-//     font-weight: 400;
-//     display: table-cell;
-//     vertical-align: middle;
-//   }
-// }
 
 .main-titles{
   display: table-cell;
@@ -170,6 +171,30 @@ h2{
 	box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
   height: 240px !important;
   margin: auto;
+}
+
+.img-single{
+  height: 320px;
+}
+
+.container-single{
+  background-color: #EDE8DE;
+}
+
+.btn-add-carts{
+  color: #fff;
+  background-color: #f07c29;
+  padding: 0 40px 0 40px !important;
+  height: 40px;
+  text-align: center;
+  font-family: 'Lato';
+  border-radius: 50px !important;
+  font-size: 15px !important;
+
+  &:hover{
+    background-color: #262626;
+    color: #fff !important;
+  }
 }
 
 @media screen and (max-width: 600px) {
