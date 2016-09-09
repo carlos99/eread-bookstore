@@ -1,32 +1,36 @@
 <div class="main-banner">
-  <h1 class="main-titles">
-    FIND YOUR PASSION, FIND YOUR <strong>BOOK.</strong>
-  </h1>
+  <section class="main-text-b">
+    <p>
+      FIND YOUR PASSION, FIND YOUR BOOKS
+    </p>
+  </section>
 </div>
 <section class="container introduction">
   <h2 class="sub-titles">
         MORE THAN JUST BOOKS...
   </h2>
   <p>
-
-“ Nunc imperdiet dictum risus finibus luctus. Quisque vestibulum nibh quis elemen
-tum vestibulum. Morbi a purus nec metus aliquam accumsan at in orci. Class aptent taciti
-sociosqu ad litora torquent per …”
+    “Nunc imperdiet dictum risus finibus luctus. Quisque vestibulum nibh quis elemen tum vestibulum. Morbi a purus nec metus aliquam accumsan at in orci. Class aptent taciti sociosqu ad litora torquent per”
   </p>
 </section>
 
-<section class="newest-book container-fluid">
-  <div class="row">
-    <h2 class="sub-titles">RECENT BOOKS</h2>
-  </div>
-<div class="row">
-  <% @books.each do |book| %>
-      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-      <%= image_tag(book.book_cover_url, class: 'img-responsive img-ft' ) if book.book_cover? %>
-        <p class="newest-book-title">  <%= book.title %></p>
-        <p class="newest-price"><%= number_to_currency(book.price) %></p>
+<section class="newest-book">
+  <div class="container">
+    <% @books.each_slice(5) do |books| %>
+      <div class="row" style="margin-top: 35px;">
+        <% books.each do |book| %>
+          <div class="custom-col-recent-books">
+            <%= link_to (image_tag (book.book_cover_url), class: 'img-responsive img-ft'), catalog_path(book) if book.book_cover? %>
+            <p class="newest-book-title">
+              <%= book.title %>
+            </p>
+            <p class="newest-price">
+              $ <%= book.price%>
+            </p>
+          </div>
+        <% end %>
       </div>
-
-  <% end %>
-</div>
+    <% end %>
+  </div>
+  <%= link_to "See All Books", catalogs_path, class: 'see-all-books' %>
 </section>

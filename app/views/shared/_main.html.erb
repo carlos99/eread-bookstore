@@ -1,12 +1,19 @@
-<main role="main">
-    <%= render 'shared/messages' %>
-
+<%= render 'shared/messages' %>
+  <% if content_for?(:sidebar) %>
+    <div class='col-md-2'>
+      <%= yield :sidebar %>
+    </div>
+    <div class='col-md-9'>
       <%= yield %>
+    </div>
+  <% else %>
+    <div class='col-md-12'>
+      <%= yield %>
+    </div>
+  <% end %>
 
-  <div class="col-md-3">
-    <div id="cart">
+  <div class='col-md-2'>
+    <div id="cart" class="cart-c">
       <%#= render @cart if @cart %>
     </div>
   </div>
-
-</main>
