@@ -15,23 +15,23 @@
         <% end %>
 
         <div class="form-group">
-            <%= f.text_field :first_name, class: 'form-control sign-up-login-inputs', hide_label: true, placeholder: 'First Name' %>
+            <%= f.text_field :first_name, class: 'form-control sign-up-login-inputs', hide_label: true, placeholder: 'First Name', required: true %>
         </div>
 
         <div class="form-group">
-            <%= f.text_field :last_name, class: 'form-control sign-up-login-inputs', hide_label: true, placeholder: 'Last Name' %>
+            <%= f.text_field :last_name, class: 'form-control sign-up-login-inputs', hide_label: true, placeholder: 'Last Name', required: true %>
         </div>
 
         <div class="form-group">
-            <%= f.email_field :email, class: 'form-control sign-up-login-inputs', hide_label: true, placeholder: 'Email' %>
+            <%= f.email_field :email, class: 'form-control sign-up-login-inputs', hide_label: true, placeholder: 'Email', required: true %>
         </div>
 
         <div class="form-group">
-            <%= f.password_field :password, class: 'form-control sign-up-login-inputs', hide_label: true, placeholder: 'Password' %>
+            <%= f.password_field :password, class: 'form-control sign-up-login-inputs', hide_label: true, placeholder: 'Password', required: true %>
         </div>
 
         <div class="form-group">
-            <%= f.password_field :password_confirmation, class: 'form-control sign-up-login-inputs', hide_label: true, placeholder: 'Confirm Password' %>
+            <%= f.password_field :password_confirmation, class: 'form-control sign-up-login-inputs', hide_label: true, placeholder: 'Confirm Password', required: true %>
         </div>
 
         <div class="form-group form-btns">
