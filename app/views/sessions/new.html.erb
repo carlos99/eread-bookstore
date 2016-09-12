@@ -5,11 +5,11 @@
         <%= bootstrap_form_tag url: sign_in_path, html: { class: 'new-general-form' } do |f| %>
 
             <div class='form-group'>
-                <%= f.email_field :email, class: 'form-control', placeholder: 'Email', hide_label: true %>
+                <%= f.email_field :email, class: 'form-control sign-up-login-inputs', placeholder: 'Email', hide_label: true %>
             </div>
 
             <div class='form-group'>
-                <%= f.password_field :password, class: 'form-control', placeholder: 'Password', hide_label: true %>
+                <%= f.password_field :password, class: 'form-control sign-up-login-inputs', placeholder: 'Password', hide_label: true %>
             </div>
             <div class='form-group actions'>
               <%= f.submit "Sign in", class:'btn btn-success' %> Or
