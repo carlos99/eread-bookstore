@@ -1,7 +1,7 @@
 <section class="row-no-margin">
   <div class="container">
-    <h3 class="text-center titles form-titles">Sign in</h3>
-      <div class="col-md-6 col-md-offset-3 book-form-container">
+    <h3 class="text-center titles form-titles h3-specials">Sign in</h3>
+      <div class="col-md-6 col-md-offset-3 container-forms-user">
         <%= bootstrap_form_tag url: sign_in_path, html: { class: 'new-general-form' } do |f| %>
 
             <div class='form-group'>
@@ -12,13 +12,14 @@
                 <%= f.password_field :password, class: 'form-control sign-up-login-inputs', placeholder: 'Password', hide_label: true %>
             </div>
             <div class='form-group actions form-btns'>
-              <%= f.submit "Sign in", class:'btn btn-success' %> Or
+              <%= f.submit "Sign in", class:'btn btn-success' %>
+              <p>Or</p>
               <%= link_to "Sing Up", new_user_path, class: 'btn btn-success' %>
             </div>
 
             <div class="form-group">
-             <div class="col-md-8">
-               <%= link_to "Forgotten Password?", reset_password_path %>
+             <div class="col-md-8 f-passwordc">
+               <%= link_to "Forgotten Password?", reset_password_path, class: "f-password" %>
              </div>
            </div>
         <% end %>

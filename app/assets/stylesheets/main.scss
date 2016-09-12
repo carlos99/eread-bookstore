@@ -212,6 +212,16 @@ h2{
   }
 }
 
+@media screen and (max-width: 791px) {
+  .h3-specials{
+    margin-top: 20px !important;
+  }
+
+  .new-general-form{
+    margin-top: 0 !important;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .main-banner h1{
     font-size: 40px;
@@ -350,6 +360,14 @@ footer{
 
 .form-btns{
   margin-top: 30px;
+  text-align: center;
+
+  p{
+    color: #262626;
+    font-weight: 400;
+    font-family: 'Lato';
+    margin: 13px auto;
+  }
 }
 
 .wmargin{
@@ -363,6 +381,11 @@ footer{
   text-align: center;
   display: block;
 
+}
+
+.container-forms-user{
+  margin-bottom: 100px;
+  overflow: hidden;
 }
 
 .paginate-catalog{
@@ -439,4 +462,15 @@ div#paginate{
 
 .books-catalog-iteration{
   text-align: center;
+}
+
+.f-passwordc{
+  text-align: center;
+}
+
+.f-password{
+  text-align: center;
+  color: #262626;
+  font-weight: 400;
+  font-family: 'Lato';
 }

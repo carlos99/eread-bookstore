@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
     resources :books
 
+    resources :book_categories
+
   end
 
   get '/sign_up', to: 'users#new', as: 'sign_up'

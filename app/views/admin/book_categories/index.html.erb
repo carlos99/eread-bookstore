@@ -1,0 +1,13 @@
+<div class="container">
+  <% @book_categories.each do |book_category| %>
+        <div class="col-md-3">
+            <%= book_category.name %>
+        </div>
+        <div><%= link_to 'Show', admin_book_category_path(book_category), class: "btn btn-show" %></div>
+        <div><%= link_to 'Edit', edit_admin_book_category_path(book_category), class: "btn btn-edit" %></div>
+        <div><%= link_to 'Destroy', admin_book_category_path(book_category), class: "btn btn-destroy", method: :delete, data: { confirm: 'Are you sure?' } %></div>
+      </div>
+  <% end %>
+  <div class="row">
+    <%= link_to "Add New Book Category", new_admin_book_category_path %>
+  </div>
