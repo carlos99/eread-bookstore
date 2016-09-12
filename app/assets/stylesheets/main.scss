@@ -284,7 +284,22 @@ footer{
   .form-control{
     border-radius: 0;
     font-family: 'Lato', sans-serif;
-    border: 1px solid #37B7B9;
+    border: 1px solid #f07c29;
+  }
+
+  ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #777 !important;
+  }
+  :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #777 !important;
+    opacity:  1;
+  }
+  ::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #777 !important;
+    opacity:  1;
+  }
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color:    #777 !important;
   }
 
   .sign-up-login-inputs{
@@ -292,7 +307,7 @@ footer{
     border-radius: 0;
     font-family: 'Lato', sans-serif;
     font-size: 15px;
-    border: 1px solid #37B7B9;
+    border: 1px solid #f07c29;
     border-top: 1px solid #FBFBFB;
     border-left: 1px solid #FBFBFB;
     border-right: 1px solid #FBFBFB;
@@ -308,15 +323,33 @@ footer{
     &:focus{
       background: #fff;
       box-shadow: none;
-      border: 1px solid #37B7B9;
+      border: 1px solid #f07c29;
     }
   }
 
   .btn{
-    border-radius: 0;
-    background-color: #37B7B9;
-    border-color: #37B7B9;
+    background-color: #f07c29;
+    border-color: #f07c29;
+    padding: 12px 35px;
+    border-radius: 2px;
+
+    -webkit-transition: all 1s ease; /* Safari and Chrome */
+  	-moz-transition: all 1s ease; /* Firefox */
+  	-o-transition: all 1s ease; /* IE 9 */
+  	-ms-transition: all 1s ease; /* Opera */
+  	transition: all 1s ease;
+
+
+    &:hover{
+      background-color: #EDE8DE;
+      color: #262626 !important;
+      border-color: #fff;
+    }
   }
+}
+
+.form-btns{
+  margin-top: 30px;
 }
 
 .wmargin{
