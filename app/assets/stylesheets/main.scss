@@ -171,21 +171,6 @@ h2{
 	box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
   height: 240px !important;
   margin: auto;
-
-  -webkit-transition: all 1s ease; /* Safari and Chrome */
-	-moz-transition: all 1s ease; /* Firefox */
-	-o-transition: all 1s ease; /* IE 9 */
-	-ms-transition: all 1s ease; /* Opera */
-	transition: all 1s ease;
-
-
-  &:hover{
-    -webkit-transform:scale(1.25); /* Safari and Chrome */
-   -moz-transform:scale(1.25); /* Firefox */
-   -ms-transform:scale(1.25); /* IE 9 */
-   -o-transform:scale(1.25); /* Opera */
-    transform:scale(1.25);
-  }
 }
 
 .img-single{
@@ -417,6 +402,22 @@ div#paginate{
     margin: auto;
     width: 90%;
   }
+
+
+    -webkit-transition: all 1s ease; /* Safari and Chrome */
+  	-moz-transition: all 1s ease; /* Firefox */
+  	-o-transition: all 1s ease; /* IE 9 */
+  	-ms-transition: all 1s ease; /* Opera */
+  	transition: all 1s ease;
+
+
+    &:hover{
+      -webkit-transform:scale(1.10); /* Safari and Chrome */
+     -moz-transform:scale(1.10); /* Firefox */
+     -ms-transform:scale(1.10); /* IE 9 */
+     -o-transform:scale(1.10); /* Opera */
+      transform:scale(1.10);
+    }
 }
 
 .inter-banner{
