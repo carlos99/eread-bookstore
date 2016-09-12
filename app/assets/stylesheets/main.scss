@@ -212,16 +212,6 @@ h2{
   }
 }
 
-@media screen and (max-width: 791px) {
-  .h3-specials{
-    margin-top: 20px !important;
-  }
-
-  .new-general-form{
-    margin-top: 0 !important;
-  }
-}
-
 @media screen and (max-width: 600px) {
   .main-banner h1{
     font-size: 40px;
@@ -355,6 +345,17 @@ footer{
       color: #262626 !important;
       border-color: #fff;
     }
+  }
+}
+
+@media screen and (max-width: 791px) {
+  .h3-specials{
+    margin-top: 20px !important;
+  }
+
+  .new-general-form{
+    margin-top: 0 !important;
+    padding: 0;
   }
 }
 
