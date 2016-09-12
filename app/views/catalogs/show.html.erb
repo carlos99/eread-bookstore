@@ -4,34 +4,42 @@
      <div class="col-md-5">
        <%= image_tag(@book.book_cover_url, class: 'img-responsive img-single') if @book.book_cover? %>
      </div>
-     <section class='col-md-5'>
+     <section class='col-md-7'>
        <div class="row">
-         <h3 class='title-h3' id='book-show'><%= "#{@book.title}" %>'s Details</h3>
+         <h3 class='title-h3 title-catalog-show' id='book-show'><%= "#{@book.title}" %>'s Details</h3>
        </div>
        <div class="row">
-         ISBN:
-         <%= @book.isbn %>
+         <p class="details-show-text">
+           ISBN: <span><%= @book.isbn %></span>
+         </p>
+         <p class="details-show-text">
+         </p>
        </div>
        <div class="row">
-         Price:
-         <%= number_to_currency(@book.price) %>
+         <p class="details-show-text">
+           Price: <span><%= number_to_currency(@book.price) %></span>
+         </p>
        </div>
        <div class="row">
-         Description:
-         <%= @book.description %>
+         <p class="details-show-text">
+           Description: <span><%= @book.description %></span>
+         </p>
        </div>
        <div class="row">
-         Publisher:
-         <%= @book.publisher.name %>
+         <p class="details-show-text">
+           Publisher: <span><%= @book.publisher.name %></span>
+         </p>
        </div>
        <div class="row">
-         Published at:
-         <%= @book.published_at %>
+         <p class="details-show-text">
+           Published at: <span><%= @book.published_at %></span>
+         </p>
        </div>
      </section>
+     <div class="col-md-2">
+       <%= button_to "Add to cart", cart_items_path(book_id: @book.id), remote: true, class: 'btn general-all-button' %>
+     </div>
    </div>
-   <div class="col-md-2">
-     <%= button_to "Add to cart", cart_items_path(book_id: @book.id), remote: true, class: 'btn btn-add-carts' %>
-   </div>
+
  </div>
 </section>

@@ -1,8 +1,9 @@
-<section>
+<section class="content-shopping-checkout">
   <div class='row'>
-    <div class='col-md-12 col-md-offset-1'>
+    <div class='col-md-12'>
       <header>
-        <h3 class='titles text-center' id='book-show'>Your Shopping Cart 1</h3>
+        <h3 class='titles text-center' id='book-show'>Your Shopping Cart</h3>
+        <p>* You must be a register user in order to checkout</p>
       </header>
 
       <div id='cart-items'>
@@ -14,11 +15,11 @@
       </div>
       <div id='clear-cart-btn'>
         <%= button_to "Clear cart", cart_path(cart), method: :delete,
-          data: { confirm: "Are you sure?"}, class: "btn btn-primary" %>
+          data: { confirm: "Are you sure?"}, class: "btn general-all-button clear-cart-bbtn" %>
       </div>
       <div id="checkout-btn">
           <% if current_user %>
-            <%= button_to "Checkout", new_order_path, method: :get, class: 'btn btn-default', id: "checkout", data: { no_turbolink: true } %>
+            <%= button_to "Checkout", new_order_path, method: :get, class: 'btn btn-default general-all-button checkout-btn', id: "checkout", data: { no_turbolink: true } %>
           <% end %>
       </div>
     </div>

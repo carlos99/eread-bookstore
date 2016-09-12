@@ -179,6 +179,8 @@ h2{
 
 .container-single{
   background-color: #EDE8DE;
+  min-height: 400px;
+  padding: 100px 0;
 }
 
 .btn-add-carts{
@@ -475,4 +477,45 @@ div#paginate{
   color: #262626;
   font-weight: 400;
   font-family: 'Lato';
+}
+
+.details-show-text{
+  font-family: 'Ubuntu';
+  font-weight: 600;
+  font-size: 16px;
+  text-align: justify;
+
+  span{
+    font-weight: 400;
+  }
+}
+
+.content-shopping-checkout{
+  font-family: 'Ubuntu';
+  font-weight: 400;
+  display: block !important;
+  text-align: center;
+}
+
+.title-catalog-show{
+  font-weight: 600;
+  margin-bottom: 30px;
+  margin-top: 0;
+  text-align: center;
+}
+
+.general-all-button{
+  background-color: #f07c29 !important;
+  border-radius: 2px !important;
+  color: #ffffff !important;
+  font-family: 'Lato';
+  padding: 12px 15px !important;
+  margin-bottom: 10px !important;
+}
+
+.clear-cart-bbtn{
+
+}
+.checkout-btn{
+
 }
