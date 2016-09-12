@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160912024609) do
+ActiveRecord::Schema.define(version: 20160912024730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,16 @@ ActiveRecord::Schema.define(version: 20160912024609) do
   end
 
   add_index "book_categories", ["user_id"], name: "index_book_categories_on_user_id", using: :btree
+
+  create_table "book_genders", force: :cascade do |t|
+    t.integer  "book_id"
+    t.integer  "book_category_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "book_genders", ["book_category_id"], name: "index_book_genders_on_book_category_id", using: :btree
+  add_index "book_genders", ["book_id"], name: "index_book_genders_on_book_id", using: :btree
 
   create_table "books", force: :cascade do |t|
     t.string   "title"
@@ -114,6 +124,8 @@ ActiveRecord::Schema.define(version: 20160912024609) do
   end
 
   add_foreign_key "book_categories", "users"
+  add_foreign_key "book_genders", "book_categories"
+  add_foreign_key "book_genders", "books"
   add_foreign_key "books", "publishers"
   add_foreign_key "cart_items", "books"
   add_foreign_key "cart_items", "carts"
