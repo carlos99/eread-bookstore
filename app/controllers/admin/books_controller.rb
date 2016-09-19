@@ -1,6 +1,8 @@
 class Admin::BooksController < Admin::BaseController
   before_action :set_book, except: [:index, :new, :create]
 
+  layout "internal_layout", only: [:index, :new, :edit, :show]
+
   def index
     @books = Book.all.order("id DESC")
   end
