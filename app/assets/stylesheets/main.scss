@@ -589,10 +589,10 @@ div#paginate{
   padding-top: 5px
 }
 
-input {
+.search-input{
 	outline: none;
 }
-input[type=search] {
+.search-input{
 	-webkit-appearance: textfield;
 	-webkit-box-sizing: content-box;
   font-family: 'Lato';
@@ -604,7 +604,7 @@ input::-webkit-search-cancel-button {
 	display: none;
 }
 
-input[type=search] {
+.search-input{
 	background: #ededed url(http://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
 	border: solid 1px #ffffff;
 	padding: 9px 10px 9px 32px;
@@ -618,7 +618,7 @@ input[type=search] {
 	-moz-transition: all .5s;
 	transition: all .5s;
 }
-input[type=search]:focus {
+:active {
 	width: 250px;
 	background-color: #fff;
 	border-color: #ffffff;
@@ -626,11 +626,4 @@ input[type=search]:focus {
 	-webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
 	-moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
 	box-shadow: 0 0 5px rgba(109,207,246,.5);
-}
-
-input:-moz-placeholder {
-	color: #999;
-}
-input::-webkit-input-placeholder {
-	color: #999;
 }
