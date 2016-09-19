@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
         redirect_to session[:intended_destination]
         session[:intended_destination] = nil
       else
-        redirect_to root_path
+        redirect_to admin_base_index_path
       end
     else
       flash.now[:danger] = "Envalid Email or Password"
