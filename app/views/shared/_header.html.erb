@@ -18,6 +18,11 @@
               <li><%= link_to "Books", admin_books_path, class: 'nav-link' %></li>
             <% end %>
             </ul>
+
+            <form class="search-form">
+            	<input type="search" placeholder="Search">
+            </form>
+
             <ul class="nav navbar-nav navbar-right">
               <% unless current_user %>
                 <li> <%= link_to "Sign In", sign_in_path, class: 'nav-link' %></li>
