@@ -1,6 +1,6 @@
 class CatalogsController < ApplicationController
   before_action :set_cart_if_session
-  
+
   layout "book_catalog_layout", only: [:index]
   layout "internal_layout", only: [:show]
 

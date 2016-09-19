@@ -306,9 +306,9 @@ footer{
     font-family: 'Lato', sans-serif;
     font-size: 15px;
     border: 1px solid #f07c29;
-    border-top: 1px solid #FBFBFB;
-    border-left: 1px solid #FBFBFB;
-    border-right: 1px solid #FBFBFB;
+    border-top: 1px solid #EDE8DE;
+    border-left: 1px solid #EDE8DE;
+    border-right: 1px solid #EDE8DE;
     box-shadow: none;
     height: auto;
     padding: 15px 12px;
@@ -415,8 +415,6 @@ div#paginate{
     margin: auto;
     width: 90%;
   }
-
-
     -webkit-transition: all 1s ease; /* Safari and Chrome */
   	-moz-transition: all 1s ease; /* Firefox */
   	-o-transition: all 1s ease; /* IE 9 */
@@ -425,7 +423,7 @@ div#paginate{
 
 
     &:hover{
-      -webkit-transform:scale(1.10); /* Safari and Chrome */
+     -webkit-transform:scale(1.10); /* Safari and Chrome */
      -moz-transform:scale(1.10); /* Firefox */
      -ms-transform:scale(1.10); /* IE 9 */
      -o-transform:scale(1.10); /* Opera */
@@ -522,6 +520,19 @@ div#paginate{
   font-family: 'Lato';
   padding: 12px 15px !important;
   margin-bottom: 10px !important;
+
+
+  &:hover{
+    color: #F07C29 !important;
+    text-decoration: none;
+    background: #fff !important;
+
+    -webkit-transition: all 1s ease; /* Safari and Chrome */
+  	-moz-transition: all 1s ease; /* Firefox */
+  	-o-transition: all 1s ease; /* IE 9 */
+  	-ms-transition: all 1s ease; /* Opera */
+  	transition: all 1s ease;
+  }
 }
 
 .clear-cart-bbtn{
