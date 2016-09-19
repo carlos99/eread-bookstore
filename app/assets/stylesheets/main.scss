@@ -158,22 +158,28 @@ h2{
     padding-top: 60px
   }
 
-  .newest-book-title{
-    color: #666666;
-    font-size: 16px;
-    margin-top: 10px;
-    width: 90%;
-    margin: 10px auto auto auto;
-  }
-
   .newest-author{
     color: #fff;
   }
-  .newest-price{
-    color: #f07c29;
-    font-size: 16px;
-    font-weight: 600;
-  }
+}
+
+.newest-book-title{
+  color: #666666;
+  font-size: 16px;
+  margin-top: 10px;
+  width: 90%;
+  margin: 10px auto auto auto;
+  text-align: center;
+  font-family: 'Titillium Web' !important;
+  font-weight: 300;
+}
+
+.newest-price{
+  color: #f07c29;
+  font-size: 16px;
+  text-align: center;
+  font-family: 'Titillium Web' !important;
+  font-weight: 300;
 }
 
 .img-ft{
@@ -191,7 +197,7 @@ h2{
 .container-single{
   background-color: #EDE8DE;
   min-height: 400px;
-  padding: 100px 0;
+  padding: 60px 0;
 }
 
 .btn-add-carts{
@@ -411,6 +417,7 @@ div#paginate{
 
 .custom-col-recent-books{
   a{
+    cursor: pointer;
     display: block;
     margin: auto;
     width: 90%;

@@ -8,6 +8,4 @@ $(document).ready(function() {
   $(window).resize(function() {
     setHeight();
   });
-
-  $('#flash_success').delay(3000).fadeOut(400)
 });
