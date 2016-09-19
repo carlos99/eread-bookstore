@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   before_action :require_sign_in
   before_action :set_cart
 
-  layout "internal_layout", only: [:index, :new]
+  layout "order_layout", only: [:index, :new]
 
   def new
     @order = Order.new
