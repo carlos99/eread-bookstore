@@ -51,6 +51,17 @@
                 <%= f.file_field :book_cover, placeholder: 'Books Description', class: 'form-control', hide_label: true %>
             </div>
 
+            <h3>Please select categories for this book</h3>
+            <div class="row">
+              <% BookCategory.all.each do |book_category|%>
+                <div class="col-md-6 filter-card">
+                    <div class="checkbox">
+                      <label><%= check_box_tag "book[book_category_ids][]", book_category.id, @book.book_category_ids.include?(book_category.id), id: dom_id(book_category) %><span></span> <%= book_category.name%></label>
+                    </div>
+                </div>
+              <%end%>
+            </div>
+
         <div class="form-group">
           <%= f.submit class: 'btn btn-success'%>
         </div>
