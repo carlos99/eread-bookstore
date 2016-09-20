@@ -1,12 +1,12 @@
 <div class="container-fluid">
-  <div class="center-title">
-    <h3>Search Result</h3>
+  <div class="center-title searches-title-result">
+    <h3>Search Results</h3>
+    <hr class="hr-separator">
   </div>
-  <div class="row">
+  <div class="row container-search-results">
     <% @books.each do |book| %>
     <div class="col-md-3">
       <div class="">
-
           <%= link_to (image_tag (book.book_cover_url), class: 'img-responsive img-ft'), catalog_path(book) if book.book_cover? %>
           <p class="newest-book-title"><%= book.title %></p>
       </div>
