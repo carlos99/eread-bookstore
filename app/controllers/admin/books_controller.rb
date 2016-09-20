@@ -5,6 +5,7 @@ class Admin::BooksController < Admin::BaseController
 
   def index
     @books = Book.all.order("id DESC")
+    @books = Book.where(["LOWER(title) LIKE ?","%#{params[:search]}%"])
   end
 
   def show
